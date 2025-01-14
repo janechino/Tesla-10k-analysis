@@ -5,8 +5,8 @@ This project involves analyzing Tesla's 10-K annual report data using R. The ana
 ### The project covers:
 - Data Scraping: Extracting financial data directly from Tesla's 10-K filing on the SEC EDGAR database.
 - Data Cleaning: Processing and organizing raw data into a structured format suitable for analysis.
-Exploratory Analysis: Identifying key trends and insights in Tesla's financial statements.
-Visualization: Presenting findings using microsoft PowerBI libraries.
+- Exploratory Analysis: Identifying key trends and insights in Tesla's financial statements.
+- Visualization: Presenting findings using microsoft PowerBI libraries.
 
 # Features
 ### Web Scraping:
