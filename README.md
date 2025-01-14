@@ -18,3 +18,13 @@ Ensured data integrity and consistency for analysis.
 ### Analysis:
 Explored Tesla's financial health and trends over time.
 Extracted metrics such as revenue growth, profit margins, and cash flow.
+### Visualization:
+Visualized key insights for stakeholders using Microsoft PowerBI.
+
+# Technologies Used
+### Programming Language: R
+Libraries:
+rvest, httr: Web scraping
+dplyr, tidyr, stringr: Data wrangling
+janitor: Data cleaning
+### Microsoft PowerBI
