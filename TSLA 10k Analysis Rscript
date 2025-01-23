@@ -6,7 +6,7 @@
 #' ---
 
 knitr::spin("TSLA Rscript.R", knit = TRUE)
-# Install necessary packages (run this once, not every time)
+#' Install necessary packages (run this once, not every time)
 #' install.packages("rvest")  #' For web scraping
 #' install.packages("httr")   #' For making GET requests
 #' install.packages("dplyr")   #' For data manipulation
@@ -71,7 +71,7 @@ print(head(tables[[23]]))  # View the first few rows of the first table (balance
 print(head(tables[[25]]))  # View the first few rows of the second table (income statement)
 print(head(tables[[27]]))  # View the first few rows of the third table (cash flow statement)
 
-
+#' BALANCE SHEET ANALYSIS
 
 #' Filter and clean the data from specific tables
 #' Example: Clean and extract the Balance Sheet table
@@ -259,6 +259,11 @@ balance_sheet$`USD values in millions (31 December 2023)`[24] <- 3
 #' Replace empty spaces in USD values in millions (31 December 2022) with a specific value
 balance_sheet$`USD values in millions (31 December 2022)`[24] <- 3
 
+#' Replace empty spaces in USD values in millions (31 December 2022) with a specific value
+balance_sheet$`USD values in millions (31 December 2022)`[21] <- 5330
+
+#' Replace empty spaces in USD values in millions (31 December 2022) with a specific value
+balance_sheet$`USD values in millions (31 December 2023)`[21] <- 8153
 
 
 #' Replace empty spaces in USD values in millions (31 December 2023) with a specific value
@@ -278,7 +283,7 @@ balance_sheet$`USD values in millions (31 December 2022)`[26] <- "-361"
 
 #' View the restructured data
 head(balance_sheet)
-
+View(balance_sheet)
 
 library(dplyr)
 
@@ -289,6 +294,21 @@ balance_sheet <- balance_sheet %>%
 
 #' Remove rows where 'ColumnName' is an empty string
 balance_sheet <- balance_sheet %>% filter(matric != "")
+
+
+library(dplyr)
+
+# Assuming 'tesla_balance_sheet' is your dataset
+# Add 'date_2022' and 'date_2023' columns
+balance_sheet <- balance_sheet %>%
+  mutate(
+    Date_2022 = "2022",  # Assign the 2022 date to all rows
+    Date_2023 = "2023"   # Assign the 2023 date to all rows
+  )
+
+# Preview the updated dataset
+head(balance_sheet)
+
 
 
 
@@ -453,8 +473,8 @@ cash_flow_statement$`USD values in millions (31 December 2022)`[17]<- "-5"
 cash_flow_statement$`USD values in millions (31 December 2023)`[18]<- "0"
 cash_flow_statement$`USD values in millions (31 December 2022)`[20]<- "-9"
 cash_flow_statement$`USD values in millions (31 December 2023)`[21]<- "-19112"
-cash_flow_statement$`USD values in millions (31 December 2022)`[21] <- "5835"
-cash_flow_statement$`USD values in millions (31 December 2023)`[23]<- "-139"
+cash_flow_statement$`USD values in millions (31 December 2022)`[21] <- "-5835"
+cash_flow_statement$`USD values in millions (31 December 2023)`[23]<- "138"
 cash_flow_statement$`USD values in millions (31 December 2023)`[25] <- "-64"
 cash_flow_statement$`USD values in millions (31 December 2023)`[28]<- "-1351"
 cash_flow_statement$`USD values in millions (31 December 2022)`[28] <- "-3364"
@@ -464,7 +484,7 @@ cash_flow_statement$`USD values in millions (31 December 2023)`[32]<- "-29"
 cash_flow_statement$`USD values in millions (31 December 2023)`[34]<- "-144"
 cash_flow_statement$`USD values in millions (31 December 2022)`[34] <- "-157"
 cash_flow_statement$`USD values in millions (31 December 2023)`[35]<- "-54"
-cash_flow_statement$`USD values in millions (31 December 2022)`[35] <- "45"
+cash_flow_statement$`USD values in millions (31 December 2022)`[35] <- "-45"
 cash_flow_statement$`USD values in millions (31 December 2022)`[18] <- "0"
 cash_flow_statement$`USD values in millions (31 December 2023)`[19] <- "0"
 cash_flow_statement$`USD values in millions (31 December 2023)`[20] <- "0"
@@ -482,6 +502,20 @@ cash_flow_statement$`USD values in millions (31 December 2023)`[33] <- "0"
 
 #' View the updated dataset
 head(cash_flow_statement)
+
+library(dplyr)
+
+# Assuming 'tesla_balance_sheet' is your dataset
+# Add 'date_2022' and 'date_2023' columns
+cash_flow_statement<- cash_flow_statement %>%
+  mutate(
+    Date_2022 = "2022",  # Assign the 2022 date to all rows
+    Date_2023 = "2023"   # Assign the 2023 date to all rows
+  )
+
+# Preview the updated dataset
+head(cash_flow_statement)
+
 
 
 
@@ -543,9 +577,26 @@ rows_to_delete <- c(1, 2, 3, 4, 5)  # Example row numbers
 income_statement <- income_statement %>%
   slice(-rows_to_delete)
 
-
+income_statement$`USD values in millions (31 December 2023)`[5]<- "-23"
+income_statement$`USD values in millions (31 December 2022)`[1]<- "-392"
+income_statement$`USD values in millions (31 December 2022)`[5]<- "31"
+income_statement$`USD values in millions (31 December 2022)`[2]<- "-23"
 
 print(income_statement)
+
+
+library(dplyr)
+
+# Assuming 'tesla_balance_sheet' is your dataset
+# Add 'date_2022' and 'date_2023' columns
+income_statement<- income_statement %>%
+  mutate(
+    Date_2022 = "2022",  # Assign the 2022 date to all rows
+    Date_2023 = "2023"   # Assign the 2023 date to all rows
+  )
+
+# Preview the updated dataset
+head(income_statement)
 
 
 #' SAVE DATA
