@@ -6,7 +6,7 @@
 #' ---
 
 knitr::spin("TSLA Rscript.R", knit = TRUE)
-#' Install necessary packages (run this once, not every time)
+# Install necessary packages (run this once, not every time)
 #' install.packages("rvest")  #' For web scraping
 #' install.packages("httr")   #' For making GET requests
 #' install.packages("dplyr")   #' For data manipulation
